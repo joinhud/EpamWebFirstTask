@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="EpamWebFirstTask:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="EpamWebFirst-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="EpamWebFirstTask:war exploded" />
+    </root>
+  </artifact>
+</component>

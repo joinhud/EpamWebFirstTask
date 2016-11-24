@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<candies xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.epam.com/candies"
+        xsi:schemaLocation="http://www.epam.com/candies candies.xsd">
+    <sweet name="RingPop">
+        <energy>45</energy>
+        <value>
+            <proteins>0</proteins>
+            <fats>0</fats>
+            <carbohydrates>10</carbohydrates>
+        </value>
+        <production>Bazooka</production>
+        <type>lollipop</type>
+        <ingredients>
+            <water>10</water>
+            <sugar>0.50</sugar>
+            <fructose>0.10</fructose>
+            <vanilla>0</vanilla>
+        </ingredients>
+    </sweet>
+    <chocolate name="AlpenGold">
+        <energy>520</energy>
+        <value>
+            <proteins>0.56</proteins>
+            <fats>0.28</fats>
+            <carbohydrates>6.05</carbohydrates>
+        </value>
+        <production>ПАО Крафт Фудз Украина</production>
+        <color>milk</color>
+        <ingredients>
+            <cocoa-mass>0.3</cocoa-mass>
+            <sugar>0.6</sugar>
+            <cocoa-butter>0.1</cocoa-butter>
+        </ingredients>
+    </chocolate>
+</candies>
