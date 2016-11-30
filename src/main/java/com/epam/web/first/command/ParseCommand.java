@@ -5,6 +5,9 @@ import com.epam.web.first.entity.Chocolate;
 import com.epam.web.first.entity.Sweet;
 import com.epam.web.first.logic.ParseLogic;
 import com.epam.web.first.manager.ConfigurationManager;
+import com.epam.web.first.upload.FileUploader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -19,16 +22,20 @@ public class ParseCommand implements ActionCommand {
     private static final String PARAM_CHOCOLATES = "chocolates";
     private static final String PATH_PAGE_RESULT = "path.page.result";
 
+    private static final Logger LOG = LogManager.getLogger();
+
     @Override
     public String execute(HttpServletRequest request) {
-        String typeParser = request.getParameter(PARAM_TYPE_PARSER);
-        Set<Candy> candies = ParseLogic.parse(request, typeParser);
+        FileUploader uploader = new FileUploader(request);
+        String typeParser = uploader.getParameterValue(PARAM_TYPE_PARSER);
+
+        Set<Candy> candies = ParseLogic.parse(request, typeParser, uploader);
         Set<Sweet> sweets = new HashSet<>();
         Set<Chocolate> chocolates = new HashSet<>();
         ConfigurationManager manager = new ConfigurationManager();
 
-        for(Candy temp : candies) {
-            if(temp instanceof Sweet) {
+        for (Candy temp : candies) {
+            if (temp instanceof Sweet) {
                 sweets.add((Sweet) temp);
             } else if (temp instanceof Chocolate) {
                 chocolates.add((Chocolate) temp);
